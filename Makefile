@@ -7,7 +7,7 @@ CFLAGS := $(XFLAGS) $(LIBRARIES) $(INCLUDES)
 OUTDIR := out
 SOURCES := uinput.c input.c rce.c
 OBJS := $(SOURCES:%.c=$(OUTDIR)/%.o)
-TARGET := $(OUTDIR)/evdev-rce
+TARGET := $(OUTDIR)/cosmo-rightclick
 
 .PHONY: all clean
 

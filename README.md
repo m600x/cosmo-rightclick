@@ -12,19 +12,19 @@ Current state:
 ## Build
 ```
 sudo apt install build-essential libevdev-dev git -y
-git clone git@github.com:m600x/evdev-right-click-emulation.git
-cd evdev-right-click-emulation
+git clone git@github.com:m600x/cosmo-rightclick.git
+cd cosmo-rightclick
 make all
 ```
 
 ## Run
 ```
-out/evdev-rce
+out/cosmo-rightclick
 ```
 
 ## Install as service
 ```
-sudo cp out/evdev-rce /usr/local/bin/evdev-rce
+sudo cp out/cosmo-rightclick /usr/local/bin/cosmo-rightclick
 sudo vi /etc/systemd/system/rightclick.service
 ```
 
@@ -34,7 +34,7 @@ Content of `/etc/systemd/system/rightclick.service`:
 Type=oneshot
 RemainAfterExit=true
 StandardOutput=journal
-ExecStart=/usr/local/bin/evdev-rce
+ExecStart=/usr/local/bin/cosmo-rightclick
 [Install]
 WantedBy=default.target
 ```

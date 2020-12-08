@@ -12,7 +12,7 @@ Current state:
 ## Build
 ```
 sudo apt install build-essential libevdev-dev git -y
-git clone git@github.com:m600x/cosmo-rightclick.git
+git clone https://github.com/m600x/cosmo-rightclick.git
 cd cosmo-rightclick
 make all
 ```
@@ -42,43 +42,9 @@ Reboot using `sudo reboot now`
 
 ---
 
-Original readme below
+Partial original readme below
 
 ---
-
-A program that solves the problem of right clicks on Linux devices with a touchscreen. It implements the long-press-to-right-click gesture on Linux touchscreen devices while having no specific requirements on the desktop environment, display server or the distribution, which greatly improves the touch experience for users of Linux distributions.
-
-It directly reads from `evdev` touchscreen input devices, parses the events, and triggers a right click with `uinput` when it detects a long press from a touchscreen. Since `evdev` is lower-level than `libinput` or any other user-space input driver, this program can work regardless of your choice of Xorg or Wayland.
-
-This program started as a Python script that I published on [Gist](https://gist.github.com/PeterCxy/b4e256b6b4a133c93c012b9738c557ca). However, the Python binding of `libevdev` had some mysterious bugs, and I thought it was not the best idea to run a Python interpreter to read every input event just to implement a simple feature. Thus I rewrote it in C, which is what is contained in this repository.
-
-Dependencies
----
-
-- libevdev
-- libevdev headers (for development)
-
-And of course `glibc` and your Linux kernel.
-
-Building
----
-
-```bash
-make all
-```
-
-The compiled program lies in `out/evdev-rce`.
-
-Usage
----
-
-Simply run
-
-```bash
-out/evdev-rce
-```
-
-Or you may put this executable anywhere on your file system.
 
 Note: this program needs to read from and write to `/dev/input`. Make sure the current user has the permission to do so, or you may use `root`.
 
@@ -109,7 +75,7 @@ LONG_CLICK_FUZZ=100
 So you can run the program like
 
 ```
-LONG_CLICK_INTERVAL=500 LONG_CLICK_FUZZ=50 evdev-rce
+LONG_CLICK_INTERVAL=500 LONG_CLICK_FUZZ=50 cosmo-rightclick
 ```
 
 To customize those options.
